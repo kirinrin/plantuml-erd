@@ -106,14 +106,16 @@ hide stereotypes
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 ' created_at、updated_at、deleted_at三列
-!global TIMESTAMPS = Column("CREATE_TIME", "TIMESTAMP") + "\n" + Column("CREATE_USER_ID", "VARCHAR(36)") + "\n" + Column("LAST_MODIFIED_TIME", "TIMESTAMP") + "\n" + Column("LAST_MODIFIED_USER_ID", "VARCHAR(36)")
+!global TIMESTAMPS = Column("CREATE_TIME", "TIMESTAMP") + "\n" + Column("CREATE_USER_ID", "VARCHAR[36]") + "\n" + Column("LAST_MODIFIED_TIME", "TIMESTAMP") + "\n" + Column("LAST_MODIFIED_USER_ID", "VARCHAR[36]")
 
 ' 主键类型
-!global PK_TYPE = UN("VARCHAR(100)")
+!global PK_TYPE = UN("VARCHAR[100]")
 
 ' 主键列
 !$tmp = PK()
 !global PRIMARY_KEY = Column($tmp, PK_TYPE)
+
+!global TENANT = Column("TENANT_ID_", "VARHCAR[100]",0 ,"" ,"租方ID")
 
 ' 列注释中的换行符
 !global CMBR="\n<size:8><color:gray><i>"
